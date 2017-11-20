@@ -43,6 +43,7 @@ try:
             time.sleep(0.2)
 
         elif input_cycle == True and input_command == False:
+            print("Accepted command: {}".format(current_selection))
 
             if current_selection == blue:
                 lightshow.append(blue)
@@ -63,6 +64,7 @@ try:
                     time.sleep(0.5)
 
             elif current_selection == clear:
+                print("Clearing lightshow.")
                 lightshow = []
 
             elif current_selection == shutdown:
