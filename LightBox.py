@@ -41,7 +41,7 @@ try:
             selection = next(commands)
             time.sleep(0.2)
 
-        elif input_cycle == True and input_command == False):
+        elif input_cycle == True and input_command == False:
 
             if current_selection == blue: # Note to self: Illegal target. current_selection == selection, it != blue.
                 lightshow.append(blue)
@@ -56,7 +56,10 @@ try:
                 lightshow.append(green)
 
             elif current_selection == execute:
-                # execute lightshow
+                for command in lightshow:
+                    for colour, led in zip(pin_colours, command):
+                        GPIO.output(colour, led)
+                    time.sleep(0.5)
 
             elif current_selection == clear:
                 lightshow = []
