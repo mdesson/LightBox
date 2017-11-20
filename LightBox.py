@@ -32,5 +32,6 @@ while halt == False:
     if input_cycle == False:
         for colour, led in zip(GPIO_colours, selection):
             GPIO.output(colour, led)
+            selection = next(commands)
 
 GPIO.cleanup()
