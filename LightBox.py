@@ -25,8 +25,8 @@ pin_colours = [23, 20, 24, 21]
 selection = blue
 halt = False
 
-for led in selection:
-    GPIO.output(selection, led)
+for colour, led in zip(pin_colours, selection):
+    GPIO.output(colour, led)
 
 try:
     while halt == False:
@@ -35,7 +35,7 @@ try:
         if input_cycle == False:
             for colour, led in zip(pin_colours, selection):
                 GPIO.output(colour, led)
-                selection = next(commands)
+            selection = next(commands)
             time.sleep(0.2)
 
 finally:
