@@ -11,9 +11,6 @@ GPIO.setup(21, GPIO.OUT) # Green
 GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_UP) # input command
 GPIO.setup(25, GPIO.IN, pull_up_down=GPIO.PUD_UP) # cycle command
 
-input_command = GPIO.input(12)
-input_cycle = GPIO.input(25)
-
 blue = [1, 0, 0, 0]
 red = [0, 1, 0, 0]
 yellow = [0, 0, 1, 0]
@@ -30,6 +27,8 @@ halt = False
 
 try:
     while halt == False:
+        input_command = GPIO.input(12)
+        input_cycle = GPIO.input(25)
         if input_cycle == False:
             print("Button pressed!")
             for colour, led in zip(pin_colours, selection):
