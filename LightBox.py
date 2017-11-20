@@ -43,7 +43,6 @@ try:
             time.sleep(0.2)
 
         elif input_cycle == True and input_command == False:
-            print("Accepted command: {}".format(current_selection))
 
             if current_selection == blue:
                 lightshow.append(blue)
@@ -58,6 +57,7 @@ try:
                 lightshow.append(green)
 
             elif current_selection == execute:
+                print("Lightshow contents: {}".format(lightshow))
                 for command in lightshow:
                     for colour, led in zip(pin_colours, command):
                         GPIO.output(colour, led)
