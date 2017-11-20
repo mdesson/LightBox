@@ -28,10 +28,15 @@ GPIO_colours = [23, 20, 24, 21]
 selection = blue
 halt = False
 
-while halt == False:
-    if input_cycle == False:
-        for colour, led in zip(GPIO_colours, selection):
-            GPIO.output(colour, led)
-            selection = next(commands)
+try:
+    while halt == False:
+        if input_cycle == False:
+            for colour, led in zip(GPIO_colours, selection):
+                print("Inputting: Pin {}, patter {}.".format(colour, led))
+                GPIO.output(colour, led)
+                selection = next(commands)
+                print("Outputting: Pin {}, patter {}.".format(colour, led))
+                time.sleep(0.2)
 
-GPIO.cleanup()
+finally:
+    GPIO.cleanup()
