@@ -11,10 +11,10 @@ The goal is to use the buttons to record simple light shows, where each light wi
 ## Commands
 Assuming the order is Blue(23), Red(20), Yellow(24), and Green(21):
 
-BRYG
-1000: Add blue to show
-0100: Add red to show
-0010: Add yellow to show
-0001: Add green to show
-1111: Play show
-1001: Clear show and, if show is playing, stop show.
+BRYG  
+1000: Add blue to show  
+0100: Add red to show  
+0010: Add yellow to show  
+0001: Add green to show  
+1111: Play show  
+1001: Clear show and, if show is playing, stop show.  
