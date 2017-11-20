@@ -25,18 +25,18 @@ pin_colours = [23, 20, 24, 21]
 selection = blue
 halt = False
 
+for led in selection:
+    GPIO.output(selection, led)
+
 try:
     while halt == False:
         input_command = GPIO.input(12)
         input_cycle = GPIO.input(25)
         if input_cycle == False:
-            print("Button pressed!")
             for colour, led in zip(pin_colours, selection):
-                print("Inputting: Pin {}, turned {}.".format(colour, led))
                 GPIO.output(colour, led)
                 selection = next(commands)
-                print("Outputting: Pin {}, turned {}.".format(colour, led))
-                time.sleep(0.2)
+            time.sleep(0.2)
 
 finally:
     GPIO.cleanup()
