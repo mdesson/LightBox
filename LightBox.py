@@ -1,6 +1,5 @@
 import time
 from itertools import cycle
-from itertools import zip
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
@@ -35,5 +34,3 @@ while halt == False:
             GPIO.output(colour, led)
 
 GPIO.cleanup()
-
-GPIO.output(i, 1)
