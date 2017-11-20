@@ -24,6 +24,7 @@ pin_colours = [23, 20, 24, 21]
 
 lightshow = []
 selection = blue
+current_selection = selection
 halt = False
 
 try:
@@ -43,7 +44,7 @@ try:
 
         elif input_cycle == True and input_command == False:
 
-            if current_selection == blue: # Note to self: Illegal target. current_selection == selection, it != blue.
+            if current_selection == blue:
                 lightshow.append(blue)
 
             elif current_selection == red:
@@ -68,7 +69,7 @@ try:
                 halt = True
 
             else:
-                print("ERROR: No selection of this type found.")
+                pass
 
         else:
             pass
