@@ -16,5 +16,5 @@ BRYG
 0100: Add red to show  
 0010: Add yellow to show  
 0001: Add green to show  
-1111: Play show  
-1001: Clear show and, if show is playing, stop show.  
+1111: Play show, stop show.  
+1001: Clear show    
