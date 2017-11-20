@@ -22,21 +22,53 @@ shutdown = [0, 0, 0, 0]
 commands = cycle([blue, red, yellow, green, execute, clear, shutdown])
 pin_colours = [23, 20, 24, 21]
 
+lightshow = []
 selection = blue
 halt = False
 
-for colour, led in zip(pin_colours, selection):
-    GPIO.output(colour, led)
-
 try:
+    for colour, led in zip(pin_colours, selection):
+        GPIO.output(colour, led)
+
     while halt == False:
         input_command = GPIO.input(12)
         input_cycle = GPIO.input(25)
-        if input_cycle == False:
+        if input_cycle == False and input_command == True:
             for colour, led in zip(pin_colours, selection):
                 GPIO.output(colour, led)
+
+            current_selection = selection
             selection = next(commands)
             time.sleep(0.2)
+
+        elif input_cycle == True and input_command == False):
+
+            if current_selection == blue: # Note to self: Illegal target. current_selection == selection, it != blue.
+                lightshow.append(blue)
+
+            elif current_selection == red:
+                lightshow.append(red)
+
+            elif current_selection == yellow:
+                lightshow.append(yellow)
+
+            elif current_selection == green:
+                lightshow.append(green)
+
+            elif current_selection == execute:
+                # execute lightshow
+
+            elif current_selection == clear:
+                lightshow = []
+
+            elif current_selection == shutdown:
+                halt = True
+
+            else:
+                print("ERROR: No selection of this type found.")
+
+        else:
+            pass
 
 finally:
     GPIO.cleanup()
