@@ -31,7 +31,7 @@ halt = False
 try:
     while halt == False:
         if input_cycle == False:
-
+            print("Button pressed!")
             for colour, led in zip(pin_colours, selection):
                 print("Inputting: Pin {}, turned {}.".format(colour, led))
                 GPIO.output(colour, led)
