@@ -23,7 +23,7 @@ clear = [1, 0, 0, 1]
 shutdown = [0, 0, 0, 0]
 
 commands = cycle([blue, red, yellow, green, execute, clear, shutdown])
-GPIO_colours = [23, 20, 24, 21]
+pin_colours = [23, 20, 24, 21]
 
 selection = blue
 halt = False
@@ -31,11 +31,12 @@ halt = False
 try:
     while halt == False:
         if input_cycle == False:
-            for colour, led in zip(GPIO_colours, selection):
-                print("Inputting: Pin {}, patter {}.".format(colour, led))
+
+            for colour, led in zip(pin_colours, selection):
+                print("Inputting: Pin {}, turned {}.".format(colour, led))
                 GPIO.output(colour, led)
                 selection = next(commands)
-                print("Outputting: Pin {}, patter {}.".format(colour, led))
+                print("Outputting: Pin {}, turned {}.".format(colour, led))
                 time.sleep(0.2)
 
 finally:
