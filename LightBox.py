@@ -35,7 +35,7 @@ try:
         input_command = GPIO.input(12)
         input_cycle = GPIO.input(25)
         if input_cycle == False and input_command == True:
-         time.sleep(0.1)
+            time.sleep(0.1)
             for colour, led in zip(pin_colours, selection):
                 GPIO.output(colour, led)
 
