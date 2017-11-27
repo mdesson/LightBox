@@ -62,7 +62,6 @@ try:
                 for command in lightshow:
                     for colour, led in zip(pin_colours, command):
                         GPIO.output(colour, led)
-                    time.sleep(0.5)
 
             elif current_selection == clear:
                 print("Clearing lightshow.")
